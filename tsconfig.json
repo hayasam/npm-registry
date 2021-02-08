@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["es2019", "DOM", "ES6", "DOM.Iterable", "ScriptHost"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "outDir": "dist",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6",
+    "types": ["reflect-metadata", "jest"]
+  },
+  "include": ["src"]
+}

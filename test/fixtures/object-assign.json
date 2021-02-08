@@ -1,0 +1,13 @@
+{
+  "name": "object-assign",
+  "description": "ES2015 `Object.assign()` ponyfill",
+  "dist-tags": {
+    "latest": "4.1.1"
+  },
+  "versions": {
+    "4.1.1": {
+      "name": "object-assign",
+      "version": "4.1.1"
+    }
+  }
+}

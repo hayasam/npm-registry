@@ -1,0 +1,27 @@
+{
+  "name": "react",
+  "description": "React is a JavaScript library for building user interfaces.",
+  "dist-tags": {
+    "latest": "16.13.0"
+  },
+  "versions": {
+    "15.0.2": {
+      "name": "react",
+      "version": "15.0.2",
+      "dependencies": {
+        "fbjs": "^0.8.0",
+        "loose-envify": "^1.1.0",
+        "object-assign": "^4.0.1"
+      }
+    },
+    "16.13.0": {
+      "name": "react",
+      "version": "16.13.0",
+      "dependencies": {
+        "loose-envify": "^1.1.0",
+        "object-assign": "^4.1.1",
+        "prop-types": "^15.6.2"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "fbjs",
+  "description": "A collection of utility libraries used by other Facebook JS projects",
+  "dist-tags": {
+    "latest": "3.0.0"
+  },
+  "versions": {
+    "0.8.0": {
+      "name": "fbjs",
+      "version": "0.8.0",
+      "dependencies": {
+        "core-js": "^1.0.0",
+        "loose-envify": "^1.0.0",
+        "object-assign": "^4.1.0"
+      }
+    },
+    "3.0.0": {
+      "name": "fbjs",
+      "version": "3.0.0",
+      "dependencies": {
+        "core-js": "^1.0.0",
+        "loose-envify": "^1.0.0",
+        "object-assign": "^4.1.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<section>
+    {{#if name}}
+    <h2>{{ name }}@{{ resolvedVersion }}</h2>
+    {{#if dependencies }}
+    <ul>
+        {{#each dependencies}}
+        <li>{{> dependency this }}</li>
+        {{/each}}
+    </ul>
+    {{/if}}
+    {{else}}
+    <h1>{{ this }}</h1>
+    {{/if}}
+</section>
