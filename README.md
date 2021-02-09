@@ -359,18 +359,65 @@ Fetch a package by given name and version from [npm registry](https://registry.n
 
 ### Testing
 
-TODO
+- Test-Driven-Development (e.g. *Red, Green, Refactor* approach) is always a good idea, but it takes more time and commitment. 
+- It works well in companies that already have this culture and see code quality as investment, not cost.
+- Tests are part of the CI/CD process.
+- Deployments happen only if tests are green. 
+- This project has only a few test examples.
+
+In practice, it's difficult to reach test Nirvana.
 
 #### Unit testing
 
+- First level of code quality. 
+- Tests logical units in isolation, mocking dependencies. 
+- Useful to reduce bug fixing costs by catching small to medium errors and making design corrections earlier. 
+- Helps with the debugging process. 
+- Easier to run and maintain than integration and UX tests.
+
+Example: `DepthFirstTreeResolver.test.ts`.
+
 #### Integration testing
 
-#### Load/capacity testing
+- Tests multiple, bigger components in interaction. 
+- Good test data is hard to ingest and maintain.
+- Slower to execute, especially ones that require a live database connection. 
+- Best to wrap everything in Docker, composing all the resources needed, e.g. database, service, integration testing service etc.
+- Good to mock any dependency that makes a call to a third-party service, e.g. `npmjs` which might be throttled and make the tests flaky.
 
-### Scalability
+Example: `GetDependencyTree.test.ts`
 
-TODO
+#### Load testing
+
+- Good for APIs and websites.
+- Good services to use are [JMeter](https://jmeter.apache.org/), [Gatling](https://gatling.io/), [Blazemeter](https://www.blazemeter.com/).
+- Hard to write good scenarios and simulations.
+- Multiple flavours:
+  - _Stress testing_: "Flash sales" type of testing, lots of users in the smallest unit of time; checks if the load balancing and auto-scaling works.
+  - _Soak testing_: tests how the system behaves under a longer stretch of time, e.g. check CPU load, memory leaks.
+  - _Capacity testing_: tests how much throughput the system can handle, in cycles of increase load > level > increase load.
+
+#### Chaos engineering testing
+
+- Injects random failures in an internal system (e.g. kills servers) to check the fault tolerance of the system and the metrics associated (e.g. restore time).
+- Great for companies who offer strong SLAs.
+- Great to have for Disaster Recovery scenarios.
+- Can be done [as-a-service](https://netflix.github.io/chaosmonkey/).
+
+### Production-readiness
+
+- A production-ready service would first fix the concurrency issue explained above, using a global pool of requests to `npmjs`.
+- It would use a permanent data store (e.g. Redis or DynamoDB) to store the cached packages
+- It would be deployed under an API Gateway (e.g. AWS API Gateway), which can handle things like auth, rate limiting, versioning, caching responses etc.
+- It would be deployed as a container (e.g. Docker).
+- It would declare all configurations via infrastructure-as-code as part of the CI/CD (e.g Terraform).
+- It would either be deployed on a virtual server in a cloud provider that sits behind a load balancer with auto-scaling enabled (e.g. AWS EC2 + ALB) or (preferred) a serverless function (e.g. AWS Lambda) or managed orchestration system (e.g. AWS ECS).
+
 
 ### UX
 
-TODO
+- The UX can be improved by adding a front-end framework, e.g. Milligram, Bootstrap, Foundation
+- They do the heavy lifting on things like responsiveness, cross-browser support etc.
+- For this exercise, the rendering is done server-side, which is good for caching by a CDN.
+- An alternative, can be a separate website that calls an internal API and renders the view client-side.
+- That would require more setup, to place the API under the same domain as the website or enabling Cross-Origin Resource Sharing (CORS).
