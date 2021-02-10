@@ -9,3 +9,7 @@ export interface DependencyTree {
   resolvedVersion: string;
   dependencies: Dependencies;
 }
+
+export function isTree(value: any): value is DependencyTree {
+  return value.name && value.dependencies;
+}

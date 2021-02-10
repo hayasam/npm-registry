@@ -1,14 +1,10 @@
 import "reflect-metadata";
 
-import { DependencyTree } from "../models/DependencyTree";
+import { isTree } from "../models/DependencyTree";
 import { DebugLoggerFactory } from "../utils/DebugLoggerFactory";
 import { DepthFirstTreeResolver } from "./DepthFirstTreeResolver";
 import { MockPackageResolver } from "../../test/fixtures/MockPackageResolver";
 import { MockVersionResolver } from "../../test/fixtures/MockVersionResolver";
-
-function isTree(value: any): value is DependencyTree {
-  return value.name;
-}
 
 function createMocks(allowRepeatTraversal: boolean = false) {
   const packageResolver = new MockPackageResolver();
