@@ -23,7 +23,7 @@
     "lru-cache": "^6.0.0",
     "reflect-metadata": "^0.1.13",
     "restify-errors": "^8.0.2",
-    "semver": "^7.3.4",
+    "semver": "^7.3.8",
     "source-map-support": "^0.5.19"
   },
   "devDependencies": {
