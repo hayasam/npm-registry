@@ -16,7 +16,7 @@
     "axios": "^0.21.1",
     "bluebird": "^3.7.2",
     "bunyan": "^1.8.15",
-    "express": "^4.17.1",
+    "express": "^4.21.0",
     "get-port": "^5.1.1",
     "handlebars": "^4.7.6",
     "inversify": "^5.0.5",
